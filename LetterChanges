@@ -13,7 +13,10 @@ function letterChanges(str) {
 		codeArray.push((newCodeLetter + 1));
 	}
 	
-  /* takes the character code from the codeArray and pushes the corresponding letter to a new array. */
+	/* Calls the capitalize array to check for 'z.'
+	capitalize(codeArray);
+	
+  	/* takes the character code from the codeArray and pushes the corresponding letter to a new array. */
 	for (var j = 0; j < codeArray.length; j++) {
 		newLetterArray.push(String.fromCharCode(codeArray[j]));
 	}
@@ -21,7 +24,7 @@ function letterChanges(str) {
 	/* Joins the new array to create a new string */
 	var newPhrase = newLetterArray.join('');
   
-  /* Takes the new string and passes it to a function which will replace the '!' with a blank space.
+  	/* Takes the new string and passes it to a function which will replace the '!' with a blank space.
 	var finalPhrase = strip(newPhrase);
   
   /* Logs the final string. */
@@ -31,4 +34,14 @@ function letterChanges(str) {
 /* Replaces the '!' with a blank space and returns the new string. */
 function strip(str) {
 	return str.replace(/!/g, ' ');
+}
+
+/* Function to check for 'z' and replace with 'a.' It checks for 123 because when called it will already have 1 added to it
+   so it must check for 122 + 1 which means it started as the letter 'z.' */
+function capitalize(array) {
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] === 123) {
+			array[i] = 97;
+		}
+	}
 }
