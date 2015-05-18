@@ -1,0 +1,47 @@
+/********** Changing Letters in a String **********/
+var phrase = 'All good things come to those who wait';
+var letter;
+var splitPhrase = phrase.split('');
+var letterArray = [];
+var codeArray = [];
+var newLetterArray = [];
+/* function to take the phrase, push it to an array and then push the character code to another array. */
+function letterChanges(str) {
+	for (var i = 0; i < phrase.length; i++) {
+		letterArray.push(phrase[i]);
+		var newCodeLetter = phrase.charCodeAt(i);
+		codeArray.push((newCodeLetter + 1));
+	}
+	
+	/* Calls the capitalize array to check for 'z.'
+	capitalize(codeArray);
+	
+  	/* takes the character code from the codeArray and pushes the corresponding letter to a new array. */
+	for (var j = 0; j < codeArray.length; j++) {
+		newLetterArray.push(String.fromCharCode(codeArray[j]));
+	}
+	
+	/* Joins the new array to create a new string */
+	var newPhrase = newLetterArray.join('');
+  
+  	/* Takes the new string and passes it to a function which will replace the '!' with a blank space.
+	var finalPhrase = strip(newPhrase);
+  
+  /* Logs the final string. */
+	console.log(finalPhrase);
+}
+
+/* Replaces the '!' with a blank space and returns the new string. */
+function strip(str) {
+	return str.replace(/!/g, ' ');
+}
+
+/* Function to check for 'z' and replace with 'a.' It checks for 123 because when called it will already have 1 added to it
+   so it must check for 122 + 1 which means it started as the letter 'z.' */
+function capitalize(array) {
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] === 123) {
+			array[i] = 97;
+		}
+	}
+}
